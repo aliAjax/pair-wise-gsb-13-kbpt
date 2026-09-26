@@ -83,7 +83,7 @@ h1 {
 
 .metrics {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
   margin-bottom: 18px;
 }
@@ -245,6 +245,142 @@ textarea {
   background: linear-gradient(90deg, #176b87, #64b6ac);
 }
 
+.product-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.product-card {
+  background: #fff;
+  border: 1px solid #dfe7f1;
+  border-radius: 8px;
+  padding: 14px;
+}
+
+.product-card.blocked {
+  border-color: #e5b4ae;
+  background: #fffafa;
+}
+
+.badge-stack {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.status-danger {
+  background: #fdecea;
+  color: #b3261e;
+}
+
+.status-warn {
+  background: #fff4e0;
+  color: #9a6200;
+}
+
+.status-muted {
+  background: #eceff3;
+  color: #5b667a;
+}
+
+.danger-note {
+  background: #fdecea;
+  color: #b3261e;
+  margin: 0;
+}
+
+.text-danger {
+  color: #b3261e;
+  font-weight: 700;
+}
+
+.muted {
+  color: #69758c;
+  font-size: 13px;
+}
+
+.alarm-list {
+  margin: 0 0 12px;
+  padding-left: 18px;
+  color: #b3261e;
+  font-size: 14px;
+  display: grid;
+  gap: 4px;
+}
+
+.prev-box {
+  background: #eef5fb;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: #445069;
+  display: grid;
+  gap: 4px;
+}
+
+.preview-box {
+  border: 1px dashed #c3d2e3;
+  border-radius: 8px;
+  padding: 12px;
+  background: #f6f9fc;
+  display: grid;
+  gap: 6px;
+  font-size: 14px;
+  color: #445069;
+}
+
+.block-alert {
+  margin-bottom: 12px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.inline-form {
+  display: grid;
+  gap: 10px;
+  border-top: 1px dashed #dfe7f1;
+  padding-top: 12px;
+  margin-top: 4px;
+}
+
+.review-input {
+  flex: 1;
+  min-width: 140px;
+}
+
+.version-item {
+  border-left: 3px solid #176b87;
+  border: 1px solid #dfe7f1;
+  border-left-width: 3px;
+  border-radius: 0 8px 8px 0;
+  padding: 14px;
+  background: #fbfcfe;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tab {
+  background: #e8eef5;
+  color: #172033;
+  padding: 8px 14px;
+}
+
+.tab.active {
+  background: #176b87;
+  color: #fff;
+}
+
 .empty {
   text-align: center;
   color: #69758c;
@@ -255,6 +391,8 @@ textarea {
   .app { padding: 18px; }
   .topbar, .workspace { grid-template-columns: 1fr; }
   .stack { justify-content: flex-start; }
-  .metrics { grid-template-columns: 1fr; }
+  .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .product-strip { grid-template-columns: 1fr; }
   .details { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
 }
