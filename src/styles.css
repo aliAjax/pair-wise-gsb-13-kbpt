@@ -70,6 +70,7 @@ h1 {
   gap: 8px;
   flex-wrap: wrap;
   justify-content: flex-end;
+  align-items: center;
 }
 
 .tag {
@@ -83,7 +84,7 @@ h1 {
 
 .metrics {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
   margin-bottom: 18px;
 }
@@ -107,10 +108,72 @@ h1 {
   font-size: 30px;
 }
 
+/* 油品放行状态卡 */
+.fuel-board {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.fuel-card {
+  background: #fff;
+  border: 1px solid #dfe7f1;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.fuel-card.stopped {
+  border-color: #e5b0a4;
+  background: #fdf6f4;
+}
+
+.fuel-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.fuel-name {
+  display: grid;
+  gap: 4px;
+}
+
+.fuel-name strong { font-size: 17px; }
+
+.tank {
+  color: #69758c;
+  font-size: 13px;
+}
+
+.fuel-latest {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  margin-top: 12px;
+  color: #536078;
+  font-size: 14px;
+}
+
+.fuel-empty {
+  margin: 12px 0 0;
+  color: #69758c;
+  font-size: 14px;
+}
+
+.fuel-stop-reason {
+  margin: 12px 0 0;
+  color: #a03a24;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
 .workspace {
   display: grid;
-  grid-template-columns: minmax(280px, 360px) 1fr;
+  grid-template-columns: minmax(280px, 380px) 1fr;
   gap: 18px;
+  align-items: start;
 }
 
 .panel, .list-panel {
@@ -130,6 +193,16 @@ h1 {
   gap: 12px;
 }
 
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.field-row.three {
+  grid-template-columns: repeat(3, 1fr);
+}
+
 label {
   display: grid;
   gap: 6px;
@@ -147,10 +220,80 @@ input, select, textarea {
 }
 
 textarea {
-  min-height: 88px;
+  min-height: 72px;
   resize: vertical;
 }
 
+/* 停发提示 */
+.banner-stop {
+  border: 1px solid #e5b0a4;
+  background: #fdeceb;
+  color: #8f2f1c;
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.banner-stop p { margin: 6px 0 0; }
+
+/* 库存衔接预览 */
+.preview {
+  margin: 14px 0;
+  border: 1px dashed #c4d2e2;
+  border-radius: 8px;
+  padding: 12px 14px;
+  background: #f7fafd;
+}
+
+.preview h3 {
+  margin: 0 0 8px;
+  font-size: 15px;
+}
+
+.preview-source {
+  margin: 0 0 10px;
+  color: #69758c;
+  font-size: 13px;
+}
+
+.preview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 14px;
+  margin: 0;
+}
+
+.preview-grid div {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.preview-grid dt { color: #69758c; }
+.preview-grid dd { margin: 0; font-weight: 700; }
+
+.bad { color: #c84b31; }
+
+.triggers {
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 6px;
+}
+
+.triggers li {
+  color: #a03a24;
+  background: #fdeceb;
+  border-radius: 6px;
+  padding: 7px 10px;
+  font-size: 13px;
+}
+
+/* 页签与筛选 */
 .toolbar {
   display: flex;
   gap: 10px;
@@ -158,6 +301,27 @@ textarea {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 14px;
+}
+
+.tabs {
+  display: flex;
+  gap: 6px;
+}
+
+.tab {
+  background: #e8eef5;
+  color: #445069;
+  padding: 8px 14px;
+}
+
+.tab.active {
+  background: #176b87;
+  color: #fff;
+}
+
+.fuel-filter {
+  width: auto;
+  min-width: 130px;
 }
 
 .record-grid {
@@ -172,6 +336,10 @@ textarea {
   background: #fbfcfe;
 }
 
+.record.record-stop {
+  border-color: #e5b0a4;
+}
+
 .record-head {
   display: flex;
   justify-content: space-between;
@@ -181,18 +349,29 @@ textarea {
 
 .record-title {
   margin: 0;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 800;
 }
 
-.status {
+.badges {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.badge {
   border-radius: 999px;
-  padding: 6px 9px;
-  background: #e8f4ef;
-  color: #14724f;
+  padding: 5px 10px;
   font-size: 12px;
   white-space: nowrap;
 }
+
+.badge.ok { background: #e8f4ef; color: #14724f; }
+.badge.stop { background: #fdeceb; color: #a03a24; }
+.badge.pending { background: #fdf3e0; color: #8f6116; }
+.badge.frozen { background: #e8eef5; color: #445069; }
+.badge.version { background: #ece8f7; color: #5a3fa8; }
 
 .details {
   display: grid;
@@ -217,32 +396,40 @@ textarea {
   flex-wrap: wrap;
 }
 
-.mini-chart {
+/* 处置单内联表单 */
+.disposal-form {
   display: grid;
-  gap: 8px;
-  margin-top: 16px;
+  gap: 12px;
+  margin-top: 12px;
+  border-top: 1px dashed #dfe7f1;
+  padding-top: 12px;
 }
 
-.bar {
+/* 版本经历 */
+.version-compare {
   display: grid;
-  grid-template-columns: 92px 1fr 42px;
-  gap: 10px;
-  align-items: center;
-  color: #536078;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.version-compare h4 {
+  margin: 0 0 8px;
+  font-size: 13px;
+  color: #69758c;
+}
+
+.version-compare .details {
+  margin: 0;
+  grid-template-columns: 1fr;
+  gap: 6px;
   font-size: 13px;
 }
 
-.bar-track {
-  height: 10px;
-  border-radius: 999px;
-  background: #e7edf4;
-  overflow: hidden;
-}
-
-.bar-fill {
-  height: 100%;
-  border-radius: inherit;
-  background: linear-gradient(90deg, #176b87, #64b6ac);
+.dialog-tip {
+  margin: 0 0 12px;
+  color: #69758c;
+  font-size: 13px;
+  line-height: 1.6;
 }
 
 .empty {
@@ -251,10 +438,15 @@ textarea {
   padding: 32px 12px;
 }
 
+@media (max-width: 960px) {
+  .fuel-board { grid-template-columns: 1fr; }
+  .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
 @media (max-width: 860px) {
   .app { padding: 18px; }
   .topbar, .workspace { grid-template-columns: 1fr; }
   .stack { justify-content: flex-start; }
   .metrics { grid-template-columns: 1fr; }
-  .details { grid-template-columns: 1fr; }
+  .details, .field-row, .field-row.three, .version-compare, .preview-grid { grid-template-columns: 1fr; }
 }
